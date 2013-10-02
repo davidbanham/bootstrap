@@ -28,15 +28,15 @@ describe('pagination directive', function () {
     $rootScope.$digest();
   }
 
-  it('has a "pagination" css class', function() {
-    expect(element.hasClass('pagination')).toBe(true);
-  });
-
   it('contains one ul and num-pages + 2 li elements', function() {
     expect(element.find('ul').length).toBe(1);
     expect(getPaginationBarSize()).toBe(7);
     expect(getPaginationEl(0).text()).toBe('Previous');
     expect(getPaginationEl(-1).text()).toBe('Next');
+  });
+
+  it('has a ul element with the "pagination" css class', function() {
+    expect(element.find('ul').hasClass('pagination')).toBe(true);
   });
 
   it('has the number of the page as text in each page item', function() {

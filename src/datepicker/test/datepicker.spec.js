@@ -1146,25 +1146,18 @@ describe('datepicker directive', function () {
         buttons = dropdownEl.find('li').eq(2).find('button');
       }
 
-      it('should have four buttons', function() {
-        expect(buttons.length).toBe(4);
+      it('should have two buttons', function() {
+        expect(buttons.length).toBe(2);
 
         expect(buttons.eq(0).text()).toBe('Today');
-        expect(buttons.eq(1).text()).toBe('Weeks');
-        expect(buttons.eq(2).text()).toBe('Clear');
-        expect(buttons.eq(3).text()).toBe('Done');
-      });
-
-      it('should have a button to clear value', function() {
-        buttons.eq(2).click();
-        expect($rootScope.date).toBe(null);
+        expect(buttons.eq(1).text()).toBe('Done');
       });
 
       it('should have a button to close calendar', function() {
         inputEl.focus();
         expect(dropdownEl.css('display')).not.toBe('none');
 
-        buttons.eq(3).click();
+        buttons.eq(1).click();
         expect(dropdownEl.css('display')).toBe('none');
       });
 
@@ -1180,9 +1173,7 @@ describe('datepicker directive', function () {
 
         it('should change text from attributes', function() {
           expect(buttons.eq(0).text()).toBe('Now');
-          expect(buttons.eq(1).text()).toBe('T.W.');
-          expect(buttons.eq(2).text()).toBe('Null it!');
-          expect(buttons.eq(3).text()).toBe('CloseME');
+          expect(buttons.eq(1).text()).toBe('CloseME');
         });
       });
     });
